@@ -1,0 +1,72 @@
+<head>
+  <title>Toston</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+</head>
+
+<body>
+  <nav class="yellow" id="nav">
+    <div class="container">
+      <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Tostón</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          {{#if currentUser}}
+            <li class="nav-item">
+               <a class="waves-effect waves-light btn" href="#addModal">Add Note</a>
+            </li>
+          {{/if}}
+          <li class="nav-item">
+            {{> loginButtons}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <h1>Latest Messages</h1>
+    {{#if currentUser}}
+      <ul class="collection">
+        {{#each messages}}
+          {{> note}}
+        {{/each}}
+      </ul>
+    {{else}}
+      <p>Please log in to manage messages</p>
+    {{/if}}
+  </div>
+
+  {{> add}}
+
+  <script>
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+  </script>
+</body>
+
+<template name="note">
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="https://vignette.wikia.nocookie.net/starcraft/images/0/05/Fenix_Heroes_Head2.jpg/revision/latest?cb=20180320003432" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{username}}</h5>
+          <p class="card-text">{{text}}</p>
+        </div>
+      </div>
+  <li class="collection-item">
+    {{text}}: <strong>Added by {{username}}</strong>
+    <a href="#" class="delete-note secondary-content"><i class="material-icons">close</i></a>
+  </li>
+</template>
+
+<template name="add">
+  <!-- Modal Structure -->
+  <div id="addModal" class="modal">
+    <div class="modal-content">
+      <h3>Add Note</h3>
+      <form class="add-form">
+        <input type="text" name="text" placeholder="Add note...">
+      </form>
+    </div>
+  </div>
+</template>
