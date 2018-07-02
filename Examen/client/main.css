@@ -32,3 +32,25 @@
     top: -1px;
     left: -1px;
 }
+
+#login-buttons .login-button, .accounts-dialog .login-button {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    padding: 4px 8px;
+    font-size: 80%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    text-align: center;
+    color: #fff;
+    background: #C2185B;
+    border: 1px solid #C2185B;
+    border-radius: 4px;
+}
+
+.lead{
+    font-size: 25px;
+}

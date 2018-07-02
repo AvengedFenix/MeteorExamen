@@ -9,7 +9,7 @@
 <body>
   <nav class="yellow" id="nav">
     <div class="nav-wrapper">
-      <img src="./images/coin.png" width="30" height="30 " alt="Coin">
+      <img src="/images/coin.png" width="30" height="30 " alt="Coin">
       <a href="#" class="brand-logo">Tostón</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if currentUser}}
@@ -25,10 +25,9 @@
 
   </nav>
 
-  <div class="container"> 
+  <div class="container">
 
-    {{#if currentUser}}
-    {{> profile}}
+    {{#if currentUser}} {{> profile}}
     <h1 id="latest">Latest Messages</h1>
     {{#each messages}} {{> note}} {{/each}} {{else}}
     <p>Please log in to manage messages</p>
@@ -51,6 +50,9 @@
     <div class="card-body">
       <h5 class="card-title">{{text}}</h5>
       <p class="card-text">{{username}}</p>
+      <a href="#" class="delete-note secondary-content">
+        <i class="material-icons">close</i>
+      </a>
     </div>
   </div>
 
@@ -69,13 +71,10 @@
 </template>
 
 <template name="profile">
-  {{message}}
   <div class="profile">
     <div class="jumbotron">
       <h1 class="display-4">P R O F I L E</h1>
-      <p class="lead">Username: {{username}}</p>
-      <hr class="my-4">
-      <p>Messages: </p>
+      <p class="lead">Username: </p>
       {{> loginButtons}}
       <!--<a class="btn btn-primary btn-lg" href="#" role="button">Sign Out</a>-->
     </div>
